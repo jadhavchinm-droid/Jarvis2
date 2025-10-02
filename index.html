@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JARVIS — SPCK Replica</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="bgCanvas"></canvas>
+  <div class="hud">
+    <div class="panel center-panel">
+      <div class="holo-circle" id="holo">
+        <div class="holo-inner">
+          <h1 class="title">J A R V I S</h1>
+          <div class="status" id="status">Awaiting wake word...</div>
+          <div style="height:12px"></div>
+          <div class="small">Say "Jarvis" to wake — or press the mic.</div>
+        </div>
+        <div class="wave" aria-hidden="true">
+          <div class="bars" id="bars"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel right-column">
+      <div class="info-grid">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong>System</strong><span class="small" id="timeSmall"></span>
+          </div>
+          <div style="margin-top:8px" id="sysInfo">
+            <div class="small">User: <strong>Guest</strong></div>
+            <div class="small">Locale: <span id="locale">—</span></div>
+            <div class="small">Platform: <span id="plat">—</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <strong>Quick Commands</strong>
+          <div class="small" style="margin-top:8px; line-height:1.45">
+            Wake: "Jarvis"<br>
+            Time/date: "What time is it?"<br>
+            Open site: "Open youtube.com"<br>
+            Calc: "Calculate 12 + 7 * 2"<br>
+            Joke: "Tell me a joke"
+          </div>
+        </div>
+      </div>
+
+      <div class="log" id="log" aria-live="polite">
+        <div style="opacity:0.6; margin-bottom:8px">Boot logs</div>
+      </div>
+
+      <div class="card" style="padding:10px">
+        <div style="display:flex; align-items:center; justify-content:space-between">
+          <strong>Voice Controls</strong>
+          <div class="small" id="micState">Mic: Off</div>
+        </div>
+        <div class="input-row">
+          <input id="textInput" type="text" placeholder='Type a command (eg. "Jarvis, what’s the time?")' />
+          <div class="mic btn" id="micBtn" title="Start Voice">🎤</div>
+        </div>
+        <div class="controls">
+          <button class="btn" id="speakBtn">Speak (text)</button>
+          <button class="btn" id="clearBtn">Clear Log</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">SPCK — Jarvis UI demo • Voice will use your browser's speech API</div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
